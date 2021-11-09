@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+
+header img {
+    width: 22%;
+    height: 58%;
+}
+
+header ion-icon {
+    color: black;
+    font-size: 40px;
+}
+
+main {
+    background-color: #E5E5E5;
+    width: 100%;
+    padding-top: 106px;
+}
+
+.mensagem {
+    width: 100%;
+    margin: 2px 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.hora-mensagem { /*Criar umas classses mais organizadinhas pra fonte*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #818181;
+    margin-right: 8px;
+}
+
+.nome-mensagem {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: black;
+}
+
+.conteudo-mensagem {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+
+input {
+    border: none;
+}
+
+input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    font-style: italic;
+}
+
+footer ion-icon {
+    font-size: 22px;
+    color: black;
+}
