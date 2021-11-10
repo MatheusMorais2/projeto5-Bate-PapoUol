@@ -1,30 +1,14 @@
 function carregarPagina () {
     let nome = prompt(`Qual é seu nome?`);
-    let objNome = {name: nome};
+    objNome = {name: nome};
     const promessa = axios.post('https://mock-api.driven.com.br/api/v4/uol/participants', objNome);
-    promessa.then(verificarResposta);
+    promessa.then(verificarNome);
 
-    /* let hora = '';
-    hora = hora.getTime();
-    console.log(hora); */
-    /* const main = document.querySelector('main');
-    main.innerHTML += `
-    <div class="mensagem">
-            <span class="hora-mensagem">
-                ${horaMensagem}
-            </span>
-            <span class="nome-mensagem">
-                Joao 
-            </span>
-            <span class="conteudo-mensagem">
-                entra na sala
-            </span>
-        </div>
-    ` */
+    return nome;
 }
 
-function verificarResposta (resposta) {
-    console.log(resposta);
+function verificarNome (resposta) {
+    console.log(resposta + "resposta de verificarNome");
     if (resposta.status == 200){
         return;
     } else if (resposta.status == 400) {
@@ -33,16 +17,66 @@ function verificarResposta (resposta) {
     }
 }
 
-carregarPagina();
-let online = true;
-setInterval(verSeEstaNaSala, 5000);
 
 function verSeEstaNaSala () {
-    if (online) {
-        return;
-    } else {
-        alert("Saiu da sala? eu nao sei como isso mudaria idk");
+    axios.post('https://mock-api.driven.com.br/api/v4/uol/status', objNome);
+}
+
+function buscarMensagens () {
+    const promessa = axios.get('https://mock-api.driven.com.br/api/v4/uol/messages');
+    promessa.then(printarMensagens);
+}
+
+function printarMensagens(objMensagem) {
+    if (objMensagem.type === 'status') { 
+        main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                <span class="hora-mensagem">${objMensagem.time}</span>
+                <span class="nome-mensagem">${objMensagem.from} </span> 
+                <span class="conteudo-mensagem">${objMensagem.text}</span>
+            </div>`;
+    } else if (objMensagem.type === 'message') {
+        main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                <span class="hora-mensagem">${objMensagem.time}</span>
+                <span class="nome-mensagem">${objMensagem.from}</span>
+                <span> para <span>
+                <span class = "nome-mensagem>${objMensagem.to} </span>
+                <span class="conteudo-mensagem">${objMensagem.text}</span>
+            </div>`;
+    } else if (objMensagem.type === 'private_message') {
+        main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                <span class="hora-mensagem">${objMensagem.time}</span>
+                <span class="nome-mensagem">${objMensagem.from}</span>
+                <span> reservadamente para </span>
+                <span class = "nome-mensagem>${objMensagem.to} </span>
+                <span class="conteudo-mensagem">${objMensagem.text}</span>
+            </div>`;
+    }
+    const elementoQueQueroQueApareca = main.lastChild;
+    elementoQueQueroQueApareca.scrollIntoView;
+    
+
+}
+
+function tentarEnviarMensagem () {
+    const mensagemEnviada = {from: nome, to:'', text:'', type:'message'};
+    mensagemEnviada.text = document.querySelector("input").value;
+    const promessa = axios.post('https://mock-api.driven.com.br/api/v4/uol/messages', mensagemEnviada);
+    promessa.then(enviarMensagem);
+}
+
+function enviarMensagem (resposta) {
+    if (resposta.status == 200){
+        console.log('mensagem enviada com sucesso?');
+    } else if (resposta.status == 400) {
+        console.log('mensagem nao enviada com sucesso meu chapa');
     }
 }
 
+let objNome = {};
+let online = true;
+const main = document.querySelector('main');
+
+let nome = carregarPagina();
+setInterval(verSeEstaNaSala, 5000);
+setInterval(buscarMensagens, 3000);
 

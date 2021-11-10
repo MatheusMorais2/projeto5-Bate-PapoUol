@@ -29,36 +29,49 @@ main {
     background-color: #E5E5E5;
     width: 100%;
     padding-top: 106px;
+    gap: 2px 0px;
 }
 
 .mensagem {
     width: 100%;
-    margin: 2px 0;
     padding: 8px;
     display: flex;
     align-items: center;
     border-radius: 2px;
+    
 }
 
-.hora-mensagem { /*Criar umas classses mais organizadinhas pra fonte*/
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+.message {
+    background-color: white;
+}
+
+.status {
+    background-color: #DCDCDC;
+}
+
+.private_message {
+    background-color: #FFDEDE;
+}
+
+.mensagem span {
     font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.hora-mensagem {
+    font-weight: 400;
     color: #818181;
     margin-right: 8px;
 }
 
 .nome-mensagem {
-    font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 14px;
     color: black;
 }
 
 .conteudo-mensagem {
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 14px;
     color: black;
 }
 
