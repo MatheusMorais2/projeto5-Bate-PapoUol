@@ -28,8 +28,8 @@ header ion-icon {
 main {
     background-color: #E5E5E5;
     width: 100%;
-    padding-top: 106px;
-    gap: 2px 0px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .mensagem {
@@ -38,7 +38,16 @@ main {
     display: flex;
     align-items: center;
     border-radius: 2px;
+    margin: 2px 0;
     
+}
+
+.mensagem span {
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    overflow-wrap: break-word;
 }
 
 .message {
@@ -53,26 +62,13 @@ main {
     background-color: #FFDEDE;
 }
 
-.mensagem span {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-}
 
 .hora-mensagem {
-    font-weight: 400;
     color: #818181;
-    margin-right: 8px;
 }
 
-.nome-mensagem {
+strong {
     font-weight: 700;
-    color: black;
-}
-
-.conteudo-mensagem {
-    font-weight: 400;
-    color: black;
 }
 
 footer {
