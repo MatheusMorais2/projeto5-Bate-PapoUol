@@ -18,8 +18,36 @@
     </header>
 
     <main>
-        
     </main>
+    <div class="transparencia"></div>
+    <aside>
+        <header>
+            Escolha um contato<br>para enviar mensagem:
+        </header>
+        <div class="contatos">
+            <div class="contato">
+                <ion-icon class="icone-grande" name="people"></ion-icon>
+                <span>Todos</span>
+            </div>
+            <div class="contato">
+                <ion-icon class="icone-grande" name="person-circle"></ion-icon>
+                <span>${objMensagem.to}</span>
+            </div>
+        </div>
+        <div class="contatos">
+            <p>Escolha a visibilidade:</p>
+            <div class="contato">
+                <ion-icon class="icone-grande" name="lock-open"></ion-icon>
+                <span>Público</span>
+                <ion-icon class="check" name="checkmark"></ion-icon>
+            </div>
+            <div class="contato">
+                <ion-icon class="icone-grande" name="lock-open"></ion-icon>
+                <span>Reservadamente</span>
+                <ion-icon class="check" name="checkmark"></ion-icon>
+            </div>
+        </div>
+    </aside>
 
     <footer>
         <input type="text" placeholder="Escreva aqui..." class="escreva-aqui">
