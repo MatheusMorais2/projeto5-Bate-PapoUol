@@ -30,27 +30,30 @@ function printarMensagens(objTodasMensagens) {
 
     for (let i=0;i<arrayMensagensServidor.length;i++){
         const objMensagem = arrayMensagensServidor[i];
-        if (objMensagem.type === 'status') { 
-            main.innerHTML += `<div class="mensagem ${objMensagem.type}">
-                                    <span> 
-                                        <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> ${objMensagem.text}
-                                    </span>
-                                </div>`;
+        if (objMensagem.to === "Todos" || objMensagem.to === nome) {
 
-        } else if (objMensagem.type === 'message') {
-            main.innerHTML += `<div class="mensagem ${objMensagem.type}">
-                                    <span> 
-                                        <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> para <strong>${objMensagem.to}</strong> ${objMensagem.text}
-                                    </span>
-                                </div>`;
-            
-        } else if (objMensagem.type === 'private_message') {
-            main.innerHTML += `<div class="mensagem ${objMensagem.type}">
-                                    <span> 
-                                        <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> reservadamente para <strong>${objMensagem.to}</strong> ${objMensagem.text}
-                                    </span>
-                                </div>`;
-            
+        
+            if (objMensagem.type === 'status') { 
+                main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                                        <span> 
+                                            <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> ${objMensagem.text}
+                                        </span>
+                                    </div>`;
+
+            } else if (objMensagem.type === 'message') {
+                main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                                        <span> 
+                                            <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> para <strong>${objMensagem.to}</strong> ${objMensagem.text}
+                                        </span>
+                                    </div>`;
+                
+            } else if (objMensagem.type === 'private_message') {
+                main.innerHTML += `<div class="mensagem ${objMensagem.type}">
+                                        <span> 
+                                            <span class="hora-mensagem">${objMensagem.time}</span> <strong>${objMensagem.from}</strong> reservadamente para <strong>${objMensagem.to}</strong> ${objMensagem.text}
+                                        </span>
+                                    </div>`;
+            }
         }
     }
     main.lastChild.scrollIntoView();
