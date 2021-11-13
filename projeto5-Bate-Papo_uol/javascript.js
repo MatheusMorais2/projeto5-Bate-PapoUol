@@ -22,8 +22,7 @@ function buscarMensagens() {
 
 function printarMensagens(objTodasMensagens) {
     const arrayMensagensServidor = objTodasMensagens.data;
-
-    for (let i=0; i<arrayMensagensServidor.length; i++){
+    for (let i=0; i<100; i++){
         const objMensagem = arrayMensagensServidor[i];
         if (objMensagem.to === "Todos" || objMensagem.to === nome) {
 
@@ -51,6 +50,7 @@ function printarMensagens(objTodasMensagens) {
             }
         }
     }
+    arrayMensagensServidor = [];
     main.lastChild.scrollIntoView();
 }
 
@@ -58,6 +58,7 @@ function tentarEnviarMensagem () {
     const mensagemEnviada = {from: nome, to:'Todos', text:'', type:'message'};
     mensagemEnviada.text = document.querySelector("input").value;
     const promessa = axios.post('https://mock-api.driven.com.br/api/v4/uol/messages', mensagemEnviada);
+    promessa.then(buscarMensagens);
     promessa.catch(recarregarPagina);
 }
 
@@ -65,10 +66,24 @@ function recarregarPagina() {
     window.location.reload();
 }
 
+function abrirMenuLateral() {
+    const menuLateral = document.querySelector("aside");
+    const transparencia = document.querySelector(".transparencia");
+    menuLateral.classList.remove("display-none");
+    transparencia.classList.remove("display-none");
+}
+
+function voltar() {
+    const menuLateral = document.querySelector("aside");
+    const transparencia = document.querySelector(".transparencia");
+    menuLateral.classList.add("display-none");
+    transparencia.classList.add("display-none");
+}
+
 let objNome = {};
 const main = document.querySelector('main');
 
-//let nome = carregarPagina();
+let nome = carregarPagina();
 //setInterval(verSeEstaNaSala, 5000);
 //setInterval(buscarMensagens, 3000);
 
