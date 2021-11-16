@@ -12,6 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet"> 
 </head>
 <body>
+    <div class="pagina-inicial">
+        <img src="./logobatepapouol.png" alt="Logo bate-papo Uol">
+        <input type="text" placeholder="Digite seu nome" data-identifier="enter-name">
+        <button onclick="carregarPagina()" data-identifier="start">Entrar</button>
+    </div>
+
     <header>
         <img src="./logobatepapouol.png" alt="Logo bate-papo Uol">
         <ion-icon id="menuLateral" name="people" onclick="abrirMenuLateral()"></ion-icon>
@@ -25,36 +31,42 @@
             Escolha um contato<br>para enviar mensagem:
         </header>
         <div class="contatos">
-            <div class="contato">
-                <ion-icon class="icone-grande" name="people"></ion-icon>
-                <span>Todos</span>
+            <div class="contato" onclick="selecionarDestinatario(this)" data-identifier="participant">
+                <div>
+                    <ion-icon class="icone-grande" name="people"></ion-icon>
+                    <span>Todos</span>
+                </div>
+                <ion-icon class="check" name="checkmark"></ion-icon>
             </div>
-            <div class="contato">
-                <ion-icon class="icone-grande" name="person-circle"></ion-icon>
-                <span>${objMensagem.to}</span>
-            </div>
+            
         </div>
-        <div class="contatos">
+        <div class="contatos" id="visibillity">
             <p>Escolha a visibilidade:</p>
-            <div class="contato">
-                <ion-icon class="icone-grande" name="lock-open"></ion-icon>
-                <span>Público</span>
+            <div class="contato" onclick="selecionarVisibilidade(this)" data-identifier="visibility">
+                <div>
+                    <ion-icon class="icone-grande" name="lock-open"></ion-icon>
+                    <span>Público</span>
+                </div>
                 <ion-icon class="check" name="checkmark"></ion-icon>
             </div>
-            <div class="contato">
-                <ion-icon class="icone-grande" name="lock-open"></ion-icon>
-                <span>Reservadamente</span>
-                <ion-icon class="check" name="checkmark"></ion-icon>
+            <div class="contato" onclick="selecionarVisibilidade(this)" data-identifier="visibility">
+                <div>
+                    <ion-icon class="icone-grande" name="lock-open"></ion-icon>
+                    <span>Reservadamente</span>
+                </div>
+                <ion-icon class="check display-none" name="checkmark"></ion-icon>
             </div>
         </div>
     </aside>
 
     <footer>
-        <input type="text" placeholder="Escreva aqui..." class="escreva-aqui">
-
+        <div>
+            <input type="text" placeholder="Escreva aqui..." class="escreva-aqui">
+            <p>Enviando para todos</p>
         </div>
         <ion-icon name="paper-plane-outline" onclick="tentarEnviarMensagem()"></ion-icon>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

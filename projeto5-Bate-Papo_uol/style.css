@@ -102,6 +102,12 @@ footer ion-icon {
     color: black;
 }
 
+footer>div>p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+}
+
 .transparencia {
     position: fixed;
     width: 100%;
@@ -119,11 +125,10 @@ aside {
     height: 100%;
     z-index: 99;
     background-color: white;
+    overflow-y: scroll;
 }
 
-.display-none {
-    display: none;
-}
+
 
 aside header {
     width: 100%;
@@ -135,7 +140,6 @@ aside header {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    
 }
 
 .contatos {
@@ -145,25 +149,93 @@ aside header {
 .contato {
     display: flex;
     align-items: center;
-    margin: 6px 17px;
+    justify-content: space-between;
+    margin: 0px 17px 8px 17px;
 }
 
-/* Terminei aqui +- */
+.contato>div {
+    display: flex;
+    align-items: center;
+}
 
 .icone-grande {
     font-size: 25px;
     margin-right: 8px;
+    min-width: 25px;
 }
 
 .contato span {
-    width: 58%;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    word-break: break-all;
 }
 
 .contato .check {
-    margin-right: 8px;
     color: #28BB25;
-    font-size: 9px;
+    font-size: 12px;
+    min-width: 12px;
 }
+
+.contatos p {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.pagina-inicial {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.pagina-inicial>img {
+    width: 130px;
+    height: 92px;
+    margin-top: 72px;
+    margin-bottom: 94px;
+}
+
+.pagina-inicial>input {
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    width: 260px;
+    height: 54px;
+    margin-bottom: 15px;
+}
+
+.pagina-inicial>input::placeholder {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #AEAEAE;
+    text-align: center;
+}
+
+.pagina-inicial>button {
+    background-color:#E7E7E7;
+    border: none;
+    border-radius: 9px;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #696969;
+    
+}
+
+.display-none {
+    display: none;
+}
+
